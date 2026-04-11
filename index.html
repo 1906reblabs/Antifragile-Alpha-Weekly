@@ -31,13 +31,8 @@
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; position: sticky; top: 0; z-index: 100;
   }
   .brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-links { display: flex; gap: 6px; align-items: center; }
@@ -52,14 +47,12 @@
   .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 6vw, 72px); font-weight: 700; color: #fff; line-height: 1.1; max-width: 720px; margin: 0 auto 20px; }
   .hero h1 em { color: var(--gold); font-style: normal; }
   .hero-sub { max-width: 560px; margin: 0 auto 36px; color: var(--text-muted); font-size: 16px; }
-
   .hero-cta-group { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
   .btn-primary { background: var(--gold); color: #0b0d12; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
   .btn-secondary { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
   .btn-secondary:hover { color: var(--text); border-color: var(--gold); }
-
   .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
   .hs { text-align: center; }
   .hs .hs-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: var(--gold); }
@@ -67,22 +60,12 @@
 
   .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
 
-  /* Regime Alert Banner */
-  .regime-alert {
-    background: rgba(240,106,106,0.07);
-    border: 1px solid rgba(240,106,106,0.2);
-    border-radius: 10px;
-    padding: 14px 20px;
-    margin: 28px 0 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
+  /* Regime alert banner */
+  .regime-alert { background: rgba(240,106,106,0.07); border: 1px solid rgba(240,106,106,0.2); border-radius: 10px; padding: 14px 20px; margin: 28px 0 0; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); }
   .regime-alert strong { color: var(--red); }
   .regime-alert a { color: var(--gold); text-decoration: none; font-weight: 600; }
 
+  /* Macro strip */
   .macro-strip { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 32px; display: flex; gap: 32px; flex-wrap: wrap; margin: 16px 0 48px; align-items: center; }
   .ms-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); font-weight: 600; margin-right: 8px; }
   .ms-item { display: flex; flex-direction: column; gap: 2px; }
@@ -98,8 +81,8 @@
   .see-all { font-size: 13px; color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
   .see-all:hover { opacity: 0.7; }
 
-  /* Featured report — latest is Apr 9 */
-  .featured { background: linear-gradient(135deg, #111420 0%, #150f1a 100%); border: 1px solid rgba(240,106,106,0.3); border-radius: 16px; padding: 40px; margin-bottom: 32px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  /* Featured report — Apr 11 edition */
+  .featured { background: linear-gradient(135deg, #111420 0%, #150c0c 100%); border: 1px solid rgba(240,106,106,0.3); border-radius: 16px; padding: 40px; margin-bottom: 32px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
   .featured::before { content: 'LATEST'; position: absolute; top: 16px; right: 20px; font-size: 10px; letter-spacing: 0.15em; color: var(--red); font-weight: 700; background: rgba(240,106,106,0.1); border: 1px solid rgba(240,106,106,0.3); padding: 3px 10px; border-radius: 4px; }
   .featured-meta { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 10px; display: flex; gap: 16px; }
   .featured-meta span { color: var(--red); }
@@ -116,21 +99,23 @@
   .tag-macro { background: rgba(100,200,240,0.08); color: #64c8f0; border: 1px solid rgba(100,200,240,0.2); }
   .tag-energy { background: rgba(240,106,76,0.1); color: var(--amber); border: 1px solid rgba(240,106,76,0.25); }
   .tag-pgm { background: rgba(180,100,240,0.1); color: #d07ef5; border: 1px solid rgba(180,100,240,0.25); }
-
+  .tag-iron { background: rgba(200,140,60,0.12); color: #d4946a; border: 1px solid rgba(200,140,60,0.25); }
   .featured-metrics { display: flex; flex-direction: column; gap: 14px; min-width: 180px; }
   .fm-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; text-align: center; }
   .fm-val { font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; }
   .fm-val.green { color: var(--green); }
   .fm-val.gold { color: var(--gold); }
   .fm-val.amber { color: var(--amber); }
+  .fm-val.red { color: var(--red); }
   .fm-label { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
 
-  /* Previous report card */
-  .prev-featured { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 32px; margin-bottom: 48px; display: flex; align-items: center; gap: 28px; }
+  /* Previous report cards */
+  .prev-featured { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 28px; margin-bottom: 16px; display: flex; align-items: center; gap: 24px; }
   .prev-featured-text { flex: 1; }
-  .prev-featured-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text); margin-bottom: 6px; }
+  .prev-featured-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--text); margin-bottom: 4px; }
   .prev-featured-text p { font-size: 13px; color: var(--text-faint); margin: 0; }
 
+  /* Filter */
   .filter-bar { display: flex; align-items: center; gap: 12px; padding: 32px 0 24px; flex-wrap: wrap; }
   .search-box { flex: 1; min-width: 220px; max-width: 320px; display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 9px 14px; transition: border-color 0.2s; }
   .search-box:focus-within { border-color: rgba(201,168,76,0.4); }
@@ -142,7 +127,8 @@
   .chip.active { background: var(--gold-dim); border-color: rgba(201,168,76,0.4); color: var(--gold); }
   .filter-count { margin-left: auto; font-size: 12px; color: var(--text-faint); }
 
-  .reports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 64px; }
+  /* Report cards */
+  .reports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 48px; }
   .report-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 12px; transition: all 0.2s; position: relative; overflow: hidden; cursor: pointer; }
   .report-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-2px); background: var(--surface2); }
   .report-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0; transition: opacity 0.2s; }
@@ -152,6 +138,7 @@
   .rc-badge { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
   .badge-new { background: rgba(62,207,142,0.15); color: var(--green); border: 1px solid rgba(62,207,142,0.3); }
   .badge-regime { background: rgba(240,106,106,0.15); color: var(--red); border: 1px solid rgba(240,106,106,0.3); }
+  .badge-tariff { background: rgba(240,80,80,0.15); color: var(--red); border: 1px solid rgba(240,80,80,0.3); }
   .badge-archived { background: var(--surface2); color: var(--text-faint); border: 1px solid var(--border); }
   .rc-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.3; }
   .rc-summary { font-size: 12.5px; color: var(--text-faint); line-height: 1.6; flex: 1; }
@@ -186,10 +173,10 @@
   .btn-price-secondary:hover { color: var(--text); border-color: var(--gold); }
   .btn-price-contact { background: rgba(201,168,76,0.08); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
   .btn-price-contact:hover { background: var(--gold-dim); }
-
   .pf-method-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
   .pf-pill { background: var(--surface); border: 1px solid var(--border); color: var(--text-faint); font-size: 11px; padding: 4px 12px; border-radius: 20px; }
 
+  /* About */
   .about-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 64px; }
   .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
   .about-icon { font-size: 24px; margin-bottom: 12px; }
@@ -224,7 +211,6 @@
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .fade-in { animation: fadeUp 0.5s ease both; }
-
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -260,16 +246,17 @@
   </nav>
 </header>
 
+<!-- Hero -->
 <section class="hero">
   <div class="hero-eyebrow">◆ South African Equities Research</div>
   <h1>Find <em>Asymmetric</em><br/>Alpha in SA Markets</h1>
   <p class="hero-sub">Weekly deep-dive research into JSE, A2X, and AltX stocks. Barbell-structured, evidence-based, and ruthlessly focused on undervalued asymmetry.</p>
   <div class="hero-cta-group">
     <a href="#pricing" class="btn btn-primary">Unlock Full Access — from R99 →</a>
-    <a href="report-apr-9-2026.html" class="btn btn-secondary">Read Latest Preview</a>
+    <a href="report-apr-11-2026.html" class="btn btn-secondary">Read Latest Preview</a>
   </div>
   <div class="hero-stats">
-    <div class="hs"><div class="hs-val" id="stat-reports">2</div><div class="hs-label">Reports Published</div></div>
+    <div class="hs"><div class="hs-val" id="stat-reports">4</div><div class="hs-label">Reports Published</div></div>
     <div class="hs"><div class="hs-val">600+</div><div class="hs-label">Stocks Screened</div></div>
     <div class="hs"><div class="hs-val">5</div><div class="hs-label">Exchanges Covered</div></div>
     <div class="hs"><div class="hs-val">Weekly</div><div class="hs-label">Publication Cadence</div></div>
@@ -281,7 +268,7 @@
   <!-- Regime Alert -->
   <div class="regime-alert">
     <span>⚠</span>
-    <span><strong>Regime Change Alert (Apr 9):</strong> Gold at ~$4,700/oz, SARB revised to 1 cut only in 2026, ZAR under pressure from oil shock. Our latest report rotates barbell weights toward gold miners and energy. <a href="report-apr-9-2026.html">Read the Apr 9 edition →</a></span>
+    <span><strong>Trade War Alert (Apr 11):</strong> US-China tariffs at 145%. ALSI -8% on the week. ZAR at R19.2 — but ZAR gold remains R59,500/oz. PAN/DRD margin 86%+. Gold selloff is a margin-call event, not a fundamental reset. <a href="report-apr-11-2026.html">Read the Apr 11 edition →</a></span>
   </div>
 
   <!-- Macro strip -->
@@ -289,22 +276,22 @@
     <span class="ms-label">Live Macro</span>
     <div class="ms-item"><div class="ms-key">SARB Repo</div><div class="ms-val neutral">6.75%</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">CPI Fcst '26</div><div class="ms-val warn">3.7% ↑</div></div>
+    <div class="ms-item"><div class="ms-key">ZAR / USD</div><div class="ms-val warn">~R19.2 ↑</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">ZAR / USD</div><div class="ms-val warn">~16.9</div></div>
+    <div class="ms-item"><div class="ms-key">Gold (USD/oz)</div><div class="ms-val neutral">~$3,100</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">Gold (USD/oz)</div><div class="ms-val up">~$4,700</div></div>
+    <div class="ms-item"><div class="ms-key">ZAR Gold (R/oz)</div><div class="ms-val up">~R59,500</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">ALSI y/y</div><div class="ms-val up">+43.6%</div></div>
+    <div class="ms-item"><div class="ms-key">Brent Crude</div><div class="ms-val warn">~$63 ↓</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">ALSI ATH</div><div class="ms-val up">126,952</div></div>
+    <div class="ms-item"><div class="ms-key">ALSI (week)</div><div class="ms-val warn">−8%</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">LS-Free Days</div><div class="ms-val up">310+</div></div>
+    <div class="ms-item"><div class="ms-key">US-China Tariffs</div><div class="ms-val warn">145%</div></div>
     <div class="ms-divider"></div>
-    <div class="ms-item"><div class="ms-key">Sasol YTD</div><div class="ms-val up">+200%+</div></div>
+    <div class="ms-item"><div class="ms-key">LS-Free Days</div><div class="ms-val up">315+</div></div>
   </div>
 
-  <!-- Latest Report (Apr 9) -->
+  <!-- Latest Report (Apr 11) -->
   <section id="reports">
     <div class="section-row">
       <h2>Latest Report</h2>
@@ -314,47 +301,70 @@
     <div class="featured">
       <div>
         <div class="featured-meta">
-          <span>Apr 9, 2026</span>
+          <span>Apr 11, 2026</span>
           <span style="color:var(--text-faint)">·</span>
-          <span style="color:var(--text-faint)">Regime-Change Edition</span>
+          <span style="color:var(--text-faint)">Trade War / Forced Liquidation Edition</span>
           <span style="color:var(--text-faint)">·</span>
           <span style="color:var(--text-faint)">JSE / A2X / AltX</span>
         </div>
-        <h3>Antifragile Alpha Weekly<br/>— Regime Change Edition (Apr 9, 2026)</h3>
-        <p class="featured-summary">Gold at $4,700, SARB now projecting only 1 rate cut in 2026, and a Middle East oil shock reshaping SA macro. We re-screen 600+ stocks, rotate the barbell toward gold miners and energy, and identify 3 new high-conviction asymmetric bets (DRD, SOL, NPN). A new PGM moonshot replaces Weaver Fintech.</p>
+        <h3>Antifragile Alpha Weekly<br/>— Trade War Edition (Apr 11, 2026)</h3>
+        <p class="featured-summary">US-China tariffs hit 145%. ALSI -8%. ZAR blows to R19.2. Gold drops to $3,100 in a margin-call liquidation — but ZAR gold is R59,500/oz. PAN/DRD operating at 86% margins. We exit Sasol (stop hit), add Capitec (antifragile banking), Kumba (China stimulus play), and explain the most important mispricing in SA equities right now.</p>
         <div class="featured-tags">
           <span class="tag tag-gold">Gold Mining</span>
-          <span class="tag tag-energy">Energy/Sasol</span>
-          <span class="tag tag-banks">Banks</span>
-          <span class="tag tag-pgm">PGMs</span>
-          <span class="tag tag-tech">Tech</span>
+          <span class="tag tag-banks">Banking (CPI)</span>
+          <span class="tag tag-iron">Iron Ore (KIO)</span>
+          <span class="tag tag-pgm">PGMs (AMS)</span>
+          <span class="tag tag-tech">Tech (IOC)</span>
           <span class="tag tag-macro">Macro Regime</span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="report-apr-9-2026.html" class="btn btn-primary">Read Free Preview →</a>
+          <a href="report-apr-11-2026.html" class="btn btn-primary">Read Free Preview →</a>
           <a href="#pricing" class="btn btn-secondary">🔓 Unlock Full Report (R99)</a>
         </div>
       </div>
       <div class="featured-metrics">
-        <div class="fm-item"><div class="fm-val green">+78%</div><div class="fm-label">Top pick upside</div></div>
+        <div class="fm-item"><div class="fm-val green">+84%</div><div class="fm-label">Top pick upside (IOC)</div></div>
         <div class="fm-item"><div class="fm-val gold">10</div><div class="fm-label">Stocks profiled</div></div>
-        <div class="fm-item"><div class="fm-val amber">4</div><div class="fm-label">New picks vs Apr 1</div></div>
+        <div class="fm-item"><div class="fm-val red">SOL</div><div class="fm-label">Stop-loss executed</div></div>
+        <div class="fm-item"><div class="fm-val amber">3</div><div class="fm-label">New picks this edition</div></div>
       </div>
     </div>
 
-    <!-- Previous report card -->
+    <!-- Previous report cards -->
     <div class="prev-featured">
-      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600;white-space:nowrap;">PREVIOUS EDITION</div>
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600;white-space:nowrap;min-width:100px;">APR 10, 2026</div>
       <div class="prev-featured-text">
-        <h4>SA Equities — Apr 1, 2026</h4>
-        <p>Original barbell: SBK, IOC, PAN as high-conviction picks. Weaver Fintech as 5×–10× moonshot. 10 undervalued stocks screened pre-regime-change.</p>
+        <h4>SA Equities — Apr 10, 2026 (Trade War Shock)</h4>
+        <p>Initial trade war response edition. SOL stop introduced. Capitec first flagged. DRD conviction buy initiated.</p>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-        <span class="tag tag-banks">Banks</span>
-        <span class="tag tag-gold">Gold</span>
-        <span class="tag tag-tech">Tech</span>
+        <span class="tag tag-gold">Gold</span><span class="tag tag-banks">Banks</span>
       </div>
-      <a href="report-apr-2026.html" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:13px;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:600;">View Report →</a>
+      <a href="report-apr-10-2026.html" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:13px;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:600;">View →</a>
+    </div>
+
+    <div class="prev-featured">
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600;white-space:nowrap;min-width:100px;">APR 9, 2026</div>
+      <div class="prev-featured-text">
+        <h4>SA Equities — Apr 9, 2026 (Regime Change)</h4>
+        <p>Gold at $4,700. SARB revised to 1 cut. Sasol (SOL) + DRD + Naspers conviction picks. PGM moonshot.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <span class="tag tag-gold">Gold</span><span class="tag tag-energy">Energy</span>
+      </div>
+      <a href="report-apr-9-2026.html" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:13px;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:600;">View →</a>
+    </div>
+
+    <div class="prev-featured" style="margin-bottom:48px;">
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600;white-space:nowrap;min-width:100px;">APR 1, 2026</div>
+      <div class="prev-featured-text">
+        <h4>SA Equities — Apr 1, 2026 (Original)</h4>
+        <p>Original barbell: SBK, IOC, PAN conviction picks. Weaver Fintech 5×–10× moonshot. 10 stocks screened pre-regime-change.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <span class="tag tag-banks">Banks</span><span class="tag tag-gold">Gold</span>
+      </div>
+      <a href="report-apr-2026.html" style="background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:13px;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:600;">View →</a>
     </div>
   </section>
 
@@ -366,21 +376,21 @@
     </div>
     <div class="filter-chips">
       <span class="chip active" onclick="setFilter('all', this)">All</span>
-      <span class="chip" onclick="setFilter('banks', this)">Banks</span>
       <span class="chip" onclick="setFilter('gold', this)">Gold</span>
+      <span class="chip" onclick="setFilter('banks', this)">Banks</span>
       <span class="chip" onclick="setFilter('energy', this)">Energy</span>
       <span class="chip" onclick="setFilter('tech', this)">Tech</span>
       <span class="chip" onclick="setFilter('macro', this)">Macro</span>
     </div>
-    <span class="filter-count" id="filterCount">2 reports</span>
+    <span class="filter-count" id="filterCount">4 reports</span>
   </div>
 
   <div class="reports-grid" id="reportsGrid">
     <!-- Populated by JS -->
     <div class="report-card fade-in" style="opacity:0.4;pointer-events:none;">
-      <div class="rc-header"><span class="rc-date">16 Apr 2026</span><span class="rc-badge badge-archived">UPCOMING</span></div>
-      <div class="rc-title">SA Equities — Apr 16, 2026</div>
-      <div class="rc-summary">Q1 earnings season kicks off. Bank results, commodity sector refresh, and post-regime-shift portfolio review.</div>
+      <div class="rc-header"><span class="rc-date">18 Apr 2026</span><span class="rc-badge badge-archived">UPCOMING</span></div>
+      <div class="rc-title">SA Equities — Apr 18, 2026</div>
+      <div class="rc-summary">Q1 earnings season preview. Bank results, post-tariff portfolio review, and gold recovery assessment.</div>
       <div class="rc-tags"><span class="tag tag-macro">Macro</span><span class="tag tag-banks">Banks</span></div>
       <div class="rc-footer"><div class="rc-stats"><span>🔒 Subscribers only</span></div></div>
     </div>
@@ -391,7 +401,7 @@
     <div class="section-row">
       <h2>Unlock the Intelligence</h2>
     </div>
-    <p style="color:var(--text-muted);max-width:560px;margin-bottom:32px;">Every report surfaces 8 locked sections: exact entry ranges, stop-losses, conviction theses, the moonshot idea, portfolio construction, broker matrix, and bull/base/bear scenarios — now including regime-change overlays. Choose your access level.</p>
+    <p style="color:var(--text-muted);max-width:560px;margin-bottom:32px;">Every report surfaces 8 locked sections: exact entry ranges, hard stop-losses, conviction theses, the moonshot idea, portfolio construction, broker matrix, and bull/base/bear scenarios — updated for each regime shift. Choose your access level.</p>
 
     <div class="pricing-grid">
       <div class="price-card">
@@ -401,14 +411,13 @@
         <ul class="price-features">
           <li><span class="pf-yes">✓</span><span>Full current report</span></li>
           <li><span class="pf-yes">✓</span><span>All 10 stock theses</span></li>
-          <li><span class="pf-yes">✓</span><span>Entry & stop levels</span></li>
+          <li><span class="pf-yes">✓</span><span>Entry &amp; stop levels</span></li>
           <li><span class="pf-yes">✓</span><span>Broker matrix</span></li>
           <li><span class="pf-no">✗</span><span>Future issues</span></li>
           <li><span class="pf-no">✗</span><span>Archive access</span></li>
         </ul>
         <a href="https://payfast.io" target="_blank" class="btn-price btn-price-secondary">Unlock This Issue →</a>
       </div>
-
       <div class="price-card featured">
         <div class="price-badge">Most Popular</div>
         <div class="price-plan">Monthly</div>
@@ -417,14 +426,13 @@
         <ul class="price-features">
           <li><span class="pf-yes">✓</span><span>Every weekly report</span></li>
           <li><span class="pf-yes">✓</span><span>Full conviction theses</span></li>
-          <li><span class="pf-yes">✓</span><span>Entry, target & stops</span></li>
-          <li><span class="pf-yes">✓</span><span>Broker & instrument guide</span></li>
+          <li><span class="pf-yes">✓</span><span>Entry, target &amp; stops</span></li>
+          <li><span class="pf-yes">✓</span><span>Broker &amp; instrument guide</span></li>
           <li><span class="pf-yes">✓</span><span>Portfolio construction</span></li>
           <li><span class="pf-yes">✓</span><span>Bull/base/bear scenarios</span></li>
         </ul>
         <a href="https://payfast.io" target="_blank" class="btn-price btn-price-primary">Start Monthly (R199) →</a>
       </div>
-
       <div class="price-card">
         <div class="price-plan">Annual</div>
         <div class="price-amount"><span class="currency">R</span>999</div>
@@ -439,7 +447,6 @@
         </ul>
         <a href="https://payfast.io" target="_blank" class="btn-price btn-price-secondary">Save with Annual →</a>
       </div>
-
       <div class="price-card" style="background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);">
         <div class="price-plan">Institutional</div>
         <div class="price-amount" style="font-size:28px;"><span class="currency" style="font-size:16px;margin-top:6px;">R</span>5k+</div>
@@ -448,7 +455,7 @@
           <li><span class="pf-yes">✓</span><span>All Annual features</span></li>
           <li><span class="pf-yes">✓</span><span>Multi-seat team access</span></li>
           <li><span class="pf-yes">✓</span><span>Custom sector reports</span></li>
-          <li><span class="pf-yes">✓</span><span>Direct analyst Q&A</span></li>
+          <li><span class="pf-yes">✓</span><span>Direct analyst Q&amp;A</span></li>
           <li><span class="pf-yes">✓</span><span>Portfolio overlay sessions</span></li>
           <li><span class="pf-yes">✓</span><span>White-label available</span></li>
         </ul>
@@ -486,7 +493,7 @@
     </div>
   </div>
 
-  <!-- How it works -->
+  <!-- About -->
   <section id="about">
     <div class="section-row"><h2>How It Works</h2></div>
     <div class="about-grid">
@@ -495,14 +502,14 @@
       <div class="about-card"><div class="about-icon">💡</div><h4>Hidden Truth Insights</h4><p>Each pick requires a contrarian catalyst or misunderstood fundamental — not just a cheap P/E ratio.</p></div>
       <div class="about-card"><div class="about-icon">📊</div><h4>Scenario Analysis</h4><p>Bull / base / bear return scenarios with explicit entry ranges, targets, and stop-loss levels for every pick.</p></div>
       <div class="about-card"><div class="about-icon">🏛️</div><h4>Execution Ready</h4><p>Broker matrix, instrument selection (shares, SSFs, CFDs, ETFs), and liquidity data in every report.</p></div>
-      <div class="about-card"><div class="about-icon">🌍</div><h4>Regime Overlay</h4><p>SARB policy, rand FX, gold/commodity cycles, oil shocks, and macro shifts are re-evaluated each week.</p></div>
+      <div class="about-card"><div class="about-icon">🌍</div><h4>Regime Overlay</h4><p>SARB policy, rand FX, gold/commodity cycles, oil shocks, and macro regime shifts re-evaluated each week.</p></div>
     </div>
   </section>
 
   <!-- Newsletter -->
   <div class="signup-banner" id="subscribe">
     <h3>Get New Reports in Your Inbox</h3>
-    <p>Free preview every Wednesday. Subscribers get the full report including all locked sections.</p>
+    <p>Free preview every Friday. Subscribers get the full report including all locked sections.</p>
     <div class="signup-form">
       <input type="email" placeholder="your@email.com"/>
       <button class="btn btn-primary" onclick="handleSubscribe()">Subscribe →</button>
@@ -527,32 +534,48 @@
 <script>
   const reports = [
     {
+      id: 'report-apr-11-2026',
+      title: 'SA Equities — Apr 11, 2026 (Trade War Edition)',
+      date: '11 Apr 2026',
+      summary: 'US-China 145% tariffs. ALSI -8%. ZAR at R19.2 but ZAR gold = R59,500/oz. Exit SOL (stop hit). New picks: DRD, CPI (Capitec), KIO. PAN/DRD 86% margin — buy the dip.',
+      tags: ['gold','banks','iron','tech','macro','pgm'],
+      tagLabels: [['Gold','tag-gold'],['Banks','tag-banks'],['Iron Ore','tag-iron']],
+      stocks: '10 stocks', exch: 'JSE · A2X',
+      href: 'report-apr-11-2026.html', isNew: true,
+      badge: 'badge-tariff', badgeText: 'TRADE WAR'
+    },
+    {
+      id: 'report-apr-10-2026',
+      title: 'SA Equities — Apr 10, 2026 (Trade War Shock)',
+      date: '10 Apr 2026',
+      summary: 'Initial trade war shock. US tariffs announced. SOL stop introduced. Capitec flagged as antifragile banking buy. DRD conviction entry initiated.',
+      tags: ['gold','banks','energy','macro'],
+      tagLabels: [['Gold','tag-gold'],['Energy','tag-energy'],['Banks','tag-banks']],
+      stocks: '10 stocks', exch: 'JSE · A2X',
+      href: 'report-apr-10-2026.html', isNew: false,
+      badge: 'badge-regime', badgeText: 'REGIME SHIFT'
+    },
+    {
       id: 'report-apr-9-2026',
       title: 'SA Equities — Apr 9, 2026 (Regime Change)',
       date: '09 Apr 2026',
-      summary: 'Gold at $4,700, SARB cuts revised to 1. New barbell: DRD Gold, Sasol, Naspers as conviction bets. PGM moonshot. 4 new picks vs Apr 1 edition.',
+      summary: 'Gold at $4,700. SARB revised to 1 cut. New conviction picks: DRD, SOL, NPN. PGM moonshot (Southern Palladium). 4 new names vs Apr 1 edition.',
       tags: ['gold','energy','banks','tech','macro','pgm'],
       tagLabels: [['Gold','tag-gold'],['Energy','tag-energy'],['Tech','tag-tech']],
-      stocks: '10 stocks',
-      exch: 'JSE · A2X',
-      href: 'report-apr-9-2026.html',
-      isNew: true,
-      badge: 'badge-regime',
-      badgeText: 'REGIME SHIFT'
+      stocks: '10 stocks', exch: 'JSE · A2X',
+      href: 'report-apr-9-2026.html', isNew: false,
+      badge: 'badge-regime', badgeText: 'REGIME SHIFT'
     },
     {
       id: 'report-apr-2026',
       title: 'SA Equities — Apr 1, 2026',
       date: '01 Apr 2026',
-      summary: '10 undervalued picks, 3 high-conviction bets (SBK, IOC, PAN), and Weaver Fintech as a 5×–10× moonshot. Full barbell portfolio + broker matrix.',
+      summary: '10 undervalued picks, 3 high-conviction bets (SBK, IOC, PAN), and Weaver Fintech as a 5×–10× moonshot. Original barbell pre-regime-change.',
       tags: ['banks','tech','gold','reit','telecom','retail','macro'],
       tagLabels: [['Banks','tag-banks'],['Gold','tag-gold'],['Tech','tag-tech']],
-      stocks: '10 stocks',
-      exch: 'JSE · A2X',
-      href: 'report-apr-2026.html',
-      isNew: false,
-      badge: 'badge-archived',
-      badgeText: 'ARCHIVED'
+      stocks: '10 stocks', exch: 'JSE · A2X',
+      href: 'report-apr-2026.html', isNew: false,
+      badge: 'badge-archived', badgeText: 'ARCHIVED'
     }
   ];
 
@@ -572,15 +595,15 @@
 
   function renderReports() {
     const grid = document.getElementById('reportsGrid');
-    // Keep the upcoming card
     const upcoming = grid.querySelector('[style*="opacity:0.4"]');
+    grid.querySelectorAll('.report-card:not([style*="opacity"])').forEach(el => el.remove());
+
     const filtered = reports.filter(r => {
       const matchTag = activeFilter === 'all' || r.tags.includes(activeFilter);
       const matchSearch = !searchQuery || r.title.toLowerCase().includes(searchQuery) || r.summary.toLowerCase().includes(searchQuery);
       return matchTag && matchSearch;
     });
-    // Clear rendered cards (not upcoming)
-    grid.querySelectorAll('.report-card:not([style*="opacity"])').forEach(el => el.remove());
+
     document.getElementById('filterCount').textContent = `${filtered.length} report${filtered.length !== 1 ? 's' : ''}`;
     document.getElementById('stat-reports').textContent = reports.length;
 
