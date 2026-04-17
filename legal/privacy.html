@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — Antifragile Alpha</title>
+<meta name="description" content="Privacy Policy for Antifragile Alpha. How we collect, use, and protect your personal information in compliance with POPIA (Protection of Personal Information Act)."/>
+<link rel="canonical" href="https://1906reblabs.github.io/Antifragile-Alpha-Weekly-/legal/privacy.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:#0b0d12; --surface:#11141c; --surface2:#171b26; --border:#1f2333;
+    --gold:#c9a84c; --gold-light:#e8c76a; --gold-dim:rgba(201,168,76,0.1);
+    --green:#3ecf8e; --red:#f06a6a; --blue:#5c9cf5; --amber:#f0a84c;
+    --text:#dde2ef; --text-muted:#7a8299; --text-faint:#353d55;
+    --nav-h:62px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;min-height:100vh;}
+  ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:var(--bg);} ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+  /* NAV */
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);position:sticky;top:0;z-index:200;}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:0.02em;}
+  .nav-primary{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+  .nav-primary a{text-decoration:none;color:var(--text-muted);font-size:13px;padding:6px 13px;border-radius:6px;transition:all 0.2s;}
+  .nav-primary a:hover{color:var(--text);background:var(--surface2);}
+  .nav-dropdown{position:relative;}
+  .nav-dropdown>a{display:flex;align-items:center;gap:4px;}
+  .nav-dropdown>a::after{content:'▾';font-size:9px;opacity:0.5;}
+  .dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--surface);border:1px solid var(--border);border-radius:10px;min-width:190px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.5);z-index:300;}
+  .nav-dropdown:hover .dropdown-menu{display:block;}
+  .dropdown-menu a{display:flex;align-items:center;gap:8px;padding:10px 16px;font-size:13px;color:var(--text-muted);text-decoration:none;border-bottom:1px solid var(--border);transition:all 0.15s;}
+  .dropdown-menu a:last-child{border-bottom:none;}
+  .dropdown-menu a:hover{background:var(--surface2);color:var(--text);}
+  .dropdown-menu .dm-icon{font-size:12px;opacity:0.7;}
+  .dropdown-menu .dm-label{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);font-weight:600;padding:8px 16px 4px;}
+  .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+  .nav-right a{text-decoration:none;color:var(--text-muted);font-size:13px;padding:6px 13px;border-radius:6px;transition:all 0.2s;}
+  .nav-right .btn-cta{background:var(--gold);color:#0b0d12;font-weight:600;padding:7px 18px;border-radius:7px;}
+  .nav-right .btn-cta:hover{background:var(--gold-light);}
+  .burger{display:none;background:none;border:none;color:var(--text-muted);cursor:pointer;padding:6px;}
+  .nav-mobile{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;flex-direction:column;gap:4px;z-index:199;}
+  .nav-mobile.open{display:flex;}
+  .nav-mobile a{text-decoration:none;color:var(--text-muted);font-size:14px;padding:9px 12px;border-radius:6px;}
+  .nav-mobile a:hover{color:var(--text);background:var(--surface2);}
+  .nav-mobile .mob-cta{background:var(--gold);color:#0b0d12;font-weight:600;text-align:center;margin-top:4px;}
+
+  /* BREADCRUMB */
+  .breadcrumb{padding:16px 48px;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text-faint);}
+  .breadcrumb a{color:var(--text-faint);text-decoration:none;transition:color 0.2s;}
+  .breadcrumb a:hover{color:var(--gold);}
+  .breadcrumb span{margin:0 8px;opacity:0.4;}
+
+  /* HERO */
+  .page-hero{padding:52px 48px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(62,207,142,0.04) 0%,transparent 65%);pointer-events:none;}
+  .hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:16px;background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.2);padding:5px 14px;border-radius:4px;}
+  .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.1;}
+  .page-hero .meta{font-size:12px;color:var(--text-faint);font-family:'DM Mono',monospace;}
+
+  /* LAYOUT */
+  .doc-wrap{max-width:800px;margin:0 auto;padding:52px 48px 80px;}
+
+  /* LEGAL NAV */
+  .legal-nav{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
+  .legal-nav a{font-size:12.5px;color:var(--text-faint);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:20px;transition:all 0.2s;}
+  .legal-nav a:hover{color:var(--gold);border-color:rgba(201,168,76,0.3);}
+  .legal-nav a.active{color:var(--gold);border-color:rgba(201,168,76,0.4);background:var(--gold-dim);}
+
+  /* POPIA BADGE */
+  .popia-badge{background:rgba(62,207,142,0.07);border:1px solid rgba(62,207,142,0.2);border-radius:12px;padding:20px 24px;margin-bottom:36px;display:flex;gap:14px;align-items:flex-start;}
+  .popia-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+  .popia-text h3{font-size:14.5px;font-weight:700;color:var(--green);margin-bottom:5px;}
+  .popia-text p{font-size:13px;color:var(--text-muted);margin:0;line-height:1.7;}
+
+  /* TOC */
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:40px;}
+  .toc-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin-bottom:12px;}
+  .toc-links{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;}
+  .toc-links a{font-size:13px;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s;}
+  .toc-links a:hover{color:var(--gold);}
+  .toc-links a .toc-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-faint);width:22px;flex-shrink:0;}
+
+  /* DATA TABLE */
+  .data-table-wrap{overflow-x:auto;margin:16px 0 24px;border-radius:10px;border:1px solid var(--border);}
+  .data-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .data-table th{padding:11px 14px;background:var(--surface2);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap;}
+  .data-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text-muted);vertical-align:top;font-size:13px;line-height:1.6;}
+  .data-table tr:last-child td{border-bottom:none;}
+  .data-table tr:hover td{background:var(--surface2);}
+  .data-table td:first-child{color:var(--text);font-weight:500;white-space:nowrap;}
+
+  /* RIGHTS GRID */
+  .rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 28px;}
+  .right-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+  .right-card h4{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+  .right-card p{font-size:12.5px;color:var(--text-faint);margin:0;line-height:1.6;}
+
+  /* TYPOGRAPHY */
+  .doc-wrap h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;margin:44px 0 14px;padding-top:44px;border-top:1px solid var(--border);scroll-margin-top:80px;}
+  .doc-wrap h2:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  .doc-wrap p{color:var(--text-muted);margin-bottom:14px;line-height:1.8;}
+  .doc-wrap strong{color:var(--text);font-weight:600;}
+  .doc-wrap ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+  .doc-wrap ul li{padding-left:20px;position:relative;color:var(--text-muted);font-size:14px;line-height:1.7;}
+  .doc-wrap ul li::before{content:'›';position:absolute;left:0;color:var(--gold);font-size:16px;line-height:1.75;}
+  .doc-wrap a{color:var(--gold);text-decoration:none;}
+  .doc-wrap a:hover{text-decoration:underline;}
+
+  /* EMAIL BLOCK */
+  .email-block{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold);padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:inline-block;margin:8px 0;}
+
+  /* RELATED DOCS */
+  .related-docs{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-top:40px;font-size:13px;color:var(--text-faint);line-height:1.7;}
+  .related-docs strong{color:var(--text-muted);display:block;margin-bottom:8px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+  .footer-brand p{font-size:13px;color:var(--text-faint);max-width:240px;line-height:1.6;margin-top:8px;}
+  .footer-col h5{font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:14px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-col ul li a{font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col ul li a:hover{color:var(--gold);}
+  .footer-bottom{grid-column:1/-1;border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--text-faint);}
+  .footer-bottom a{color:var(--text-faint);text-decoration:none;}
+  .footer-bottom a:hover{color:var(--gold);}
+  .footer-links-row{display:flex;gap:20px;flex-wrap:wrap;}
+
+  @media(max-width:900px){
+    header{padding:0 20px;} .nav-primary,.nav-right{display:none;} .burger{display:block;}
+    .breadcrumb,.page-hero{padding-left:20px;padding-right:20px;}
+    .doc-wrap{padding:36px 20px 56px;}
+    .toc-links{grid-template-columns:1fr;}
+    .rights-grid{grid-template-columns:1fr;}
+    footer{grid-template-columns:1fr 1fr;padding:32px 20px;gap:28px;}
+    .footer-brand{grid-column:1/-1;}
+  }
+  @media(max-width:600px){footer{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="../index.html">◆ Antifragile Alpha</a>
+  <nav class="nav-primary">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <div class="nav-dropdown">
+      <a href="../research/index.html">Research</a>
+      <div class="dropdown-menu">
+        <span class="dm-label">Research</span>
+        <a href="../research/index.html"><span class="dm-icon">📅</span> Weekly Editions</a>
+        <a href="../research/archive.html"><span class="dm-icon">🗄️</span> Archive</a>
+      </div>
+    </div>
+    <a href="../methodology.html">Methodology</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../subscribe.html">Subscribe</a>
+    <div class="nav-dropdown">
+      <a href="#">More</a>
+      <div class="dropdown-menu">
+        <span class="dm-label">More</span>
+        <a href="../contact.html"><span class="dm-icon">✉️</span> Contact</a>
+        <a href="../search.html"><span class="dm-icon">🔍</span> Search</a>
+        <a href="https://github.com/1906reblabs/Antifragile-Alpha-Weekly-" target="_blank"><span class="dm-icon">🐙</span> GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-right">
+    <a href="../pricing.html" class="btn-cta">Unlock Access →</a>
+  </div>
+  <button class="burger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</header>
+<nav class="nav-mobile" id="mobileNav">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About</a>
+  <a href="../research/index.html">Weekly Editions</a>
+  <a href="../research/archive.html">Archive</a>
+  <a href="../methodology.html">Methodology</a>
+  <a href="../pricing.html">Pricing</a>
+  <a href="../subscribe.html">Subscribe</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../pricing.html" class="mob-cta">Unlock Access →</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a><span>›</span>Legal<span>›</span>Privacy Policy
+</div>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="eyebrow">🔒 Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: April 2026 · Governing law: Republic of South Africa · POPIA compliant</p>
+  </div>
+</div>
+
+<div class="doc-wrap">
+
+  <div class="legal-nav">
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="privacy.html" class="active">Privacy Policy</a>
+  </div>
+
+  <div class="popia-badge">
+    <div class="popia-icon">🛡️</div>
+    <div class="popia-text">
+      <h3>POPIA Compliance Statement</h3>
+      <p>This Privacy Policy is written in compliance with the Protection of Personal Information Act 4 of 2013 (POPIA), which came into full effect on 1 July 2021. Antifragile Alpha is committed to processing your personal information lawfully, minimally, and with transparency. We do not sell your personal information to any third party.</p>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <div class="toc-links">
+      <a href="#who-we-are"><span class="toc-num">1.</span> Who We Are</a>
+      <a href="#what-we-collect"><span class="toc-num">2.</span> Information We Collect</a>
+      <a href="#how-we-use"><span class="toc-num">3.</span> How We Use Your Information</a>
+      <a href="#lawful-basis"><span class="toc-num">4.</span> Lawful Basis (POPIA)</a>
+      <a href="#sharing"><span class="toc-num">5.</span> Sharing &amp; Disclosure</a>
+      <a href="#retention"><span class="toc-num">6.</span> Retention</a>
+      <a href="#security"><span class="toc-num">7.</span> Security</a>
+      <a href="#your-rights"><span class="toc-num">8.</span> Your Rights Under POPIA</a>
+      <a href="#cookies"><span class="toc-num">9.</span> Cookies &amp; Tracking</a>
+      <a href="#children"><span class="toc-num">10.</span> Children's Privacy</a>
+      <a href="#cross-border"><span class="toc-num">11.</span> Cross-Border Transfers</a>
+      <a href="#changes"><span class="toc-num">12.</span> Changes to This Policy</a>
+      <a href="#contact-privacy"><span class="toc-num">13.</span> Contact &amp; Complaints</a>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <h2 id="who-we-are">1. Who We Are</h2>
+  <p>Antifragile Alpha ("we", "us", "our") is a South African equity research publication. For the purposes of POPIA, Antifragile Alpha is the <strong>Responsible Party</strong> — the person or entity that determines the purpose of and means for processing your personal information.</p>
+  <p><strong>Contact details for privacy matters:</strong></p>
+  <div class="email-block">research@antifragile-alpha.co.za</div>
+  <p>We do not have a separate Information Officer appointment; the publisher of Antifragile Alpha acts as the de facto Information Officer for POPIA purposes.</p>
+
+  <!-- 2 -->
+  <h2 id="what-we-collect">2. Information We Collect</h2>
+  <p>We collect only the minimum personal information necessary to provide our services. The categories of information we may collect are:</p>
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Specific Data</th>
+          <th>When Collected</th>
+          <th>Required?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Identity</td>
+          <td>Name (first and last)</td>
+          <td>Newsletter sign-up or purchase</td>
+          <td>Optional for newsletter; required for payment</td>
+        </tr>
+        <tr>
+          <td>Contact</td>
+          <td>Email address</td>
+          <td>Newsletter sign-up, purchase, or contact form</td>
+          <td>Required</td>
+        </tr>
+        <tr>
+          <td>Payment</td>
+          <td>Transaction reference, subscription tier, billing date</td>
+          <td>On purchase (processed by PayFast)</td>
+          <td>Required for paid access</td>
+        </tr>
+        <tr>
+          <td>Usage</td>
+          <td>Pages visited, time on site, referral source</td>
+          <td>Automatically via browser (if analytics enabled)</td>
+          <td>Automatic; opt-out available</td>
+        </tr>
+        <tr>
+          <td>Communications</td>
+          <td>Emails sent to us, support requests</td>
+          <td>When you contact us</td>
+          <td>Only if you contact us</td>
+        </tr>
+        <tr>
+          <td>Technical</td>
+          <td>IP address, browser type, device type</td>
+          <td>Automatically on site access</td>
+          <td>Automatic; standard web server logs</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>What we do NOT collect:</strong> We do not collect identity documents, financial account details, health information, biometric data, religious or political beliefs, or any other special categories of personal information as defined under POPIA Section 26.</p>
+  <p><strong>Payment card data:</strong> We never see, store, or process your credit card or bank account details. All payment processing is handled exclusively by PayFast, a PCI-DSS compliant payment gateway. PayFast's privacy policy governs the handling of your payment data.</p>
+
+  <!-- 3 -->
+  <h2 id="how-we-use">3. How We Use Your Information</h2>
+  <p>We use the personal information we collect only for the following purposes:</p>
+  <ul>
+    <li><strong>Delivering the service:</strong> Sending weekly research reports and preview emails to subscribers; providing access to paid content; processing and confirming purchases.</li>
+    <li><strong>Account and subscription management:</strong> Managing your subscription status, sending billing notifications, and responding to support requests.</li>
+    <li><strong>Service communications:</strong> Notifying you of significant changes to the service, Terms of Use, or this Privacy Policy.</li>
+    <li><strong>Improving the service:</strong> Using aggregate, anonymised usage data to understand which content is most useful and to improve the site experience. We do not use individual-level data for profiling.</li>
+    <li><strong>Legal obligations:</strong> Complying with applicable South African law, including responding to lawful requests from regulatory or law enforcement authorities.</li>
+    <li><strong>Security:</strong> Detecting and preventing fraud, abuse, or unauthorised access to the service.</li>
+  </ul>
+  <p><strong>We do not use your personal information for:</strong> targeted advertising, sale to third parties, automated decision-making that produces legal effects, or any purpose not listed above.</p>
+
+  <!-- 4 -->
+  <h2 id="lawful-basis">4. Lawful Basis for Processing (POPIA)</h2>
+  <p>Under POPIA, we must have a lawful basis for every processing activity. Our processing activities and their bases are:</p>
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Processing Activity</th>
+          <th>Lawful Basis (POPIA)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sending research reports to subscribers</td>
+          <td>Performance of a contract (your subscription agreement)</td>
+        </tr>
+        <tr>
+          <td>Processing subscription payments</td>
+          <td>Performance of a contract; legal obligation (financial records)</td>
+        </tr>
+        <tr>
+          <td>Sending free newsletter to sign-ups</td>
+          <td>Consent (you opted in; you may withdraw at any time)</td>
+        </tr>
+        <tr>
+          <td>Responding to support enquiries</td>
+          <td>Legitimate interest (providing customer service)</td>
+        </tr>
+        <tr>
+          <td>Aggregate site analytics</td>
+          <td>Legitimate interest (improving the service); data is anonymised</td>
+        </tr>
+        <tr>
+          <td>Retaining transaction records</td>
+          <td>Legal obligation (financial record-keeping requirements)</td>
+        </tr>
+        <tr>
+          <td>Security and fraud prevention</td>
+          <td>Legitimate interest; legal obligation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5 -->
+  <h2 id="sharing">5. Sharing &amp; Disclosure</h2>
+  <p>We do not sell, rent, or trade your personal information. We share your personal information only in the following limited circumstances:</p>
+  <ul>
+    <li><strong>PayFast (payment processor):</strong> Your name and email are shared with PayFast solely to process your payment and manage your subscription. PayFast operates under its own privacy policy and is PCI-DSS certified.</li>
+    <li><strong>Email service provider:</strong> We use a third-party email delivery service to send research reports and newsletters. Your email address is shared with this provider solely for the purpose of email delivery. We select providers that operate under POPIA-compatible data processing agreements.</li>
+    <li><strong>Legal requirements:</strong> We may disclose your personal information if required to do so by law, court order, or a lawful request from a South African regulatory or law enforcement authority, provided we are legally permitted to inform you of such a request.</li>
+    <li><strong>Business transfers:</strong> If Antifragile Alpha is sold or merged with another entity, your personal information may be transferred as part of that transaction. We will notify you via email before your information is transferred and becomes subject to a different privacy policy.</li>
+  </ul>
+  <p>In all cases where we share personal information with third-party processors, we ensure they are bound by contractual obligations to process your data only for the purposes specified, to maintain appropriate security, and to comply with applicable South African privacy law.</p>
+
+  <!-- 6 -->
+  <h2 id="retention">6. Retention</h2>
+  <p>We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected, or as required by law.</p>
+
+  <div class="data-table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Retention Period</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Subscriber email + name</td>
+          <td>Duration of subscription + 12 months</td>
+          <td>Service delivery; reactivation window</td>
+        </tr>
+        <tr>
+          <td>Newsletter-only email</td>
+          <td>Until unsubscribe + 30 days</td>
+          <td>Processing unsubscribe requests; bounce management</td>
+        </tr>
+        <tr>
+          <td>Transaction records</td>
+          <td>5 years from transaction date</td>
+          <td>South African tax and financial record-keeping requirements</td>
+        </tr>
+        <tr>
+          <td>Support communications</td>
+          <td>2 years from last contact</td>
+          <td>Reference for dispute resolution</td>
+        </tr>
+        <tr>
+          <td>Web server logs (IP, access)</td>
+          <td>90 days</td>
+          <td>Security monitoring; then deleted</td>
+        </tr>
+        <tr>
+          <td>Anonymised analytics</td>
+          <td>Indefinitely</td>
+          <td>Aggregate; no personal data retained after anonymisation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>When retention periods expire, we delete or permanently anonymise the relevant personal information. You may request earlier deletion — see Section 8 (Your Rights) for details.</p>
+
+  <!-- 7 -->
+  <h2 id="security">7. Security</h2>
+  <p>We implement appropriate technical and organisational measures to protect your personal information against accidental loss, unauthorised access, alteration, or disclosure. These measures include:</p>
+  <ul>
+    <li>HTTPS encryption for all data transmitted between your browser and our site</li>
+    <li>Access controls limiting who within our operation can access subscriber data</li>
+    <li>Use of established, reputable third-party platforms for email delivery and payment processing rather than building custom infrastructure</li>
+    <li>No storage of payment card data — all payment processing is delegated to PayFast</li>
+    <li>Regular review of third-party service providers for security compliance</li>
+  </ul>
+  <p>No method of transmission over the internet or method of electronic storage is 100% secure. While we take reasonable precautions, we cannot guarantee absolute security. In the event of a security breach that is likely to result in a risk to your rights and freedoms, we will notify you and the Information Regulator as required under POPIA within the prescribed timeframe.</p>
+
+  <!-- 8 -->
+  <h2 id="your-rights">8. Your Rights Under POPIA</h2>
+  <p>POPIA grants you the following rights regarding your personal information. To exercise any of these rights, contact us at <a href="mailto:research@antifragile-alpha.co.za">research@antifragile-alpha.co.za</a>. We will respond within 30 days.</p>
+
+  <div class="rights-grid">
+    <div class="right-card">
+      <h4>📋 Right of Access</h4>
+      <p>You may request confirmation of whether we hold personal information about you, and receive a copy of that information.</p>
+    </div>
+    <div class="right-card">
+      <h4>✏️ Right to Correction</h4>
+      <p>You may request that we correct any inaccurate, incomplete, or outdated personal information we hold about you.</p>
+    </div>
+    <div class="right-card">
+      <h4>🗑️ Right to Deletion</h4>
+      <p>You may request that we delete your personal information where we no longer have a lawful basis or legal obligation to retain it.</p>
+    </div>
+    <div class="right-card">
+      <h4>🚫 Right to Object</h4>
+      <p>You may object to processing based on legitimate interest. We will stop processing unless we can demonstrate compelling grounds that override your interests.</p>
+    </div>
+    <div class="right-card">
+      <h4>↩️ Right to Withdraw Consent</h4>
+      <p>Where processing is based on your consent (e.g. newsletter), you may withdraw consent at any time. Withdrawal does not affect the lawfulness of processing before withdrawal.</p>
+    </div>
+    <div class="right-card">
+      <h4>📩 Right to Complain</h4>
+      <p>If you believe we have processed your personal information in violation of POPIA, you may lodge a complaint with the <strong>Information Regulator</strong> at inforeg.org.za.</p>
+    </div>
+  </div>
+
+  <p>To unsubscribe from the newsletter, use the unsubscribe link in any email we send you, or email us at the address above. Unsubscribe requests are processed within 5 business days.</p>
+
+  <!-- 9 -->
+  <h2 id="cookies">9. Cookies &amp; Tracking</h2>
+  <p>Our site is a static HTML site hosted on GitHub Pages. We do not use first-party cookies for advertising, behavioural tracking, or user profiling. The following cookies or similar technologies may be present:</p>
+  <ul>
+    <li><strong>GitHub Pages:</strong> The hosting infrastructure may set technical cookies necessary for delivery of the site. These are set by GitHub, not by Antifragile Alpha, and are governed by GitHub's privacy policy.</li>
+    <li><strong>Google Fonts:</strong> We load fonts from Google Fonts. Google may log the font request including your IP address and browser type. We do not receive this data.</li>
+    <li><strong>Analytics (if enabled):</strong> We may enable basic, privacy-preserving analytics to understand aggregate page visits. If we do, we will update this section with the specific tool used and confirm no personally identifiable data is collected at the individual level.</li>
+  </ul>
+  <p>We do not use advertising cookies, social media tracking pixels, retargeting technologies, or any third-party behavioural tracking on this site.</p>
+  <p>You may control cookies through your browser settings. Disabling cookies will not affect your ability to read free content on this site. It may affect the payment flow on the PayFast checkout (handled on PayFast's own domain, not ours).</p>
+
+  <!-- 10 -->
+  <h2 id="children">10. Children's Privacy</h2>
+  <p>Our services are not directed at or intended for persons under the age of 18. We do not knowingly collect personal information from minors. If you are under 18, please do not submit any personal information to us.</p>
+  <p>If we become aware that we have inadvertently collected personal information from a minor, we will delete it promptly. If you believe we have collected information from a minor, please contact us at <a href="mailto:research@antifragile-alpha.co.za">research@antifragile-alpha.co.za</a>.</p>
+
+  <!-- 11 -->
+  <h2 id="cross-border">11. Cross-Border Transfers</h2>
+  <p>POPIA restricts the transfer of personal information to countries that do not have adequate data protection laws, unless specific conditions are met (POPIA Section 72).</p>
+  <p>Our primary service providers (email delivery, payment processing) may process data in jurisdictions outside South Africa, including the United States and European Union member states. Where this occurs, we ensure that:</p>
+  <ul>
+    <li>The receiving party is subject to a law, binding corporate rules, or a binding agreement that provides an adequate level of protection substantially similar to POPIA; or</li>
+    <li>You have consented to the transfer; or</li>
+    <li>The transfer is necessary for the performance of your subscription contract with us.</li>
+  </ul>
+  <p>Specifically: PayFast is a South African payment processor (Ozow Group) and processes data within South Africa. Our email service provider may process data outside South Africa; we ensure a data processing agreement is in place that requires POPIA-equivalent protections.</p>
+
+  <!-- 12 -->
+  <h2 id="changes">12. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or for other operational reasons. We will post the updated policy on this page with a revised "Last updated" date.</p>
+  <p>For material changes — those that significantly affect how we process your personal information or your rights under POPIA — we will notify active subscribers by email at least 14 days before the change takes effect.</p>
+  <p>Your continued use of our services after any update constitutes acceptance of the revised policy. If you do not agree with any changes, you may cancel your subscription and request deletion of your personal information.</p>
+
+  <!-- 13 -->
+  <h2 id="contact-privacy">13. Contact &amp; Complaints</h2>
+  <p>For any privacy-related enquiries, requests to exercise your rights, or concerns about how we handle your personal information, contact us at:</p>
+  <div class="email-block">research@antifragile-alpha.co.za</div>
+  <p>We will acknowledge your request within 3 business days and respond substantively within 30 days as required under POPIA.</p>
+  <p>If you are not satisfied with our response, or if you believe we have processed your personal information in violation of POPIA, you have the right to lodge a complaint with the <strong>Information Regulator of South Africa</strong>:</p>
+  <ul>
+    <li>Website: <strong>inforeg.org.za</strong></li>
+    <li>Email: <strong>inforeg@justice.gov.za</strong></li>
+    <li>Address: JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001</li>
+  </ul>
+
+  <div class="related-docs">
+    <strong>Related Legal Documents</strong>
+    <a href="disclaimer.html" style="color:var(--gold);text-decoration:none;margin-right:24px;">Financial Disclaimer →</a>
+    <a href="terms.html" style="color:var(--gold);text-decoration:none;">Terms of Use →</a>
+  </div>
+
+</div><!-- /.doc-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a class="brand" href="../index.html">◆ Antifragile Alpha</a>
+    <p>Weekly deep-dive research into JSE, A2X, and AltX equities. For informational purposes only. Not financial advice.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Research</h5>
+    <ul>
+      <li><a href="../research/index.html">Weekly Editions</a></li>
+      <li><a href="../research/archive.html">Archive</a></li>
+      <li><a href="../methodology.html">Methodology</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Site</h5>
+    <ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../subscribe.html">Subscribe</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Legal</h5>
+    <ul>
+      <li><a href="terms.html">Terms of Use</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>For informational purposes only · Not financial advice · Not an FSP · © 2026 Antifragile Alpha</span>
+    <div class="footer-links-row">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
