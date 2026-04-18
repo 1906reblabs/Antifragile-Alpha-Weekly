@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Antifragile Alpha Weekly – SA Equities (Apr 18, 2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e29;
+    --border: #252a38;
+    --gold: #c9a84c;
+    --gold-light: #e8c76a;
+    --gold-dim: rgba(201,168,76,0.12);
+    --green: #3ecf8e;
+    --red: #f06a6a;
+    --amber: #f0a84c;
+    --blue: #5c9cf5;
+    --text: #dde2ef;
+    --text-muted: #7a8299;
+    --text-faint: #3e4561;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.75; min-height: 100vh; }
+  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+
+  nav.sidebar {
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 36px 24px; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .sidebar-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--gold); line-height: 1.3; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .sidebar-brand span { display: block; font-size: 11px; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+  .sidebar-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); font-weight: 600; margin-bottom: 10px; }
+  .sidebar-links { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .sidebar-links a { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text-muted); font-size: 13px; padding: 7px 10px; border-radius: 6px; transition: all 0.2s; border-left: 2px solid transparent; }
+  .sidebar-links a:hover { color: var(--text); background: var(--surface2); border-left-color: var(--gold); }
+  .sidebar-links a .num { color: var(--text-faint); font-family: 'DM Mono', monospace; font-size: 11px; }
+  .sidebar-links a.locked { color: var(--text-faint); cursor: default; pointer-events: none; }
+  .lock-icon { margin-left: auto; font-size: 11px; color: var(--gold); opacity: 0.7; }
+
+  .macro-card { background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); border-radius: 10px; padding: 16px; margin-top: auto; }
+  .macro-card .mc-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+  .macro-stat { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .macro-stat:last-child { border-bottom: none; }
+  .macro-stat .k { color: var(--text-muted); }
+  .macro-stat .v { font-family: 'DM Mono', monospace; font-weight: 500; }
+  .v-warn { color: var(--red) !important; }
+  .v-ok { color: var(--green) !important; }
+  .v-gold { color: var(--gold-light) !important; }
+
+  main { padding: 0; }
+
+  .hero { background: linear-gradient(135deg, #0d0f14 0%, #0e1a0d 50%, #0d0f18 100%); border-bottom: 1px solid var(--border); padding: 64px 60px 52px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -60px; width: 360px; height: 360px; background: radial-gradient(circle, rgba(62,207,142,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(62,207,142,0.1); border: 1px solid rgba(62,207,142,0.3); color: var(--green); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: #fff; line-height: 1.15; max-width: 740px; margin-bottom: 20px; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 28px; }
+  .hero-summary { max-width: 800px; color: var(--text-muted); font-size: 15px; line-height: 1.8; border-left: 3px solid var(--green); padding-left: 20px; }
+  .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+  .pill { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); font-size: 12px; padding: 5px 12px; border-radius: 20px; }
+  .pill.green { border-color: rgba(62,207,142,0.3); color: var(--green); background: rgba(62,207,142,0.08); }
+  .pill.gold { border-color: rgba(201,168,76,0.3); color: var(--gold); background: var(--gold-dim); }
+  .pill.amber { border-color: rgba(240,168,76,0.3); color: var(--amber); background: rgba(240,168,76,0.08); }
+  .pill.red { border-color: rgba(240,106,106,0.3); color: var(--red); background: rgba(240,106,106,0.08); }
+
+  .content { padding: 52px 60px; max-width: 1100px; }
+  section { margin-bottom: 72px; }
+  .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); font-weight: 500; background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1.2; }
+  h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--gold-light); margin: 32px 0 14px; display: flex; align-items: center; gap: 10px; }
+  h3::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); flex-shrink: 0; }
+  p { color: var(--text-muted); margin-bottom: 14px; }
+  strong { color: var(--text); font-weight: 600; }
+  ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  ul li { padding-left: 20px; position: relative; color: var(--text-muted); }
+  ul li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 16px; line-height: 1.75; }
+  blockquote { border-left: 3px solid var(--gold); padding: 14px 20px; background: var(--gold-dim); border-radius: 0 8px 8px 0; color: var(--text-muted); font-size: 14px; font-style: italic; margin: 16px 0; }
+
+  .table-wrap { overflow-x: auto; margin: 8px 0 24px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  thead th { padding: 12px 14px; text-align: left; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; white-space: nowrap; border-bottom: 1px solid var(--border); }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+  tbody td { padding: 12px 14px; color: var(--text-muted); vertical-align: top; }
+  tbody td:first-child { color: var(--text); font-weight: 500; }
+  .ticker { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); font-weight: 500; }
+  .upside-green { color: var(--green); font-family: 'DM Mono', monospace; font-weight: 600; }
+  .price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); }
+  .fv { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--green); }
+  .risk-low { background: rgba(62,207,142,0.12); color: var(--green); font-size: 11px; padding: 2px 8px; border-radius: 12px; display: inline-block; white-space: nowrap; }
+  .risk-med { background: rgba(201,168,76,0.15); color: var(--gold-light); font-size: 11px; padding: 2px 8px; border-radius: 12px; display: inline-block; white-space: nowrap; }
+  .risk-high { background: rgba(240,106,106,0.15); color: var(--red); font-size: 11px; padding: 2px 8px; border-radius: 12px; display: inline-block; white-space: nowrap; }
+  .table-caption { font-size: 12px; color: var(--text-faint); margin-top: 10px; font-style: italic; }
+
+  /* Recovery card */
+  .recovery-card { background: linear-gradient(135deg, rgba(62,207,142,0.08), rgba(201,168,76,0.05)); border: 1px solid rgba(62,207,142,0.2); border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .rc-item { text-align: center; }
+  .rc-arrow { font-size: 20px; margin-bottom: 4px; }
+  .rc-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+  .rc-val { font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 500; }
+  .rc-change { font-size: 11px; margin-top: 4px; }
+
+  .free-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(62,207,142,0.12); border: 1px solid rgba(62,207,142,0.3); color: var(--green); font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 600; letter-spacing: 0.06em; margin-left: 10px; vertical-align: middle; }
+
+  .alert-box { background: rgba(62,207,142,0.06); border: 1px solid rgba(62,207,142,0.2); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; font-size: 13.5px; color: var(--text-muted); }
+  .alert-box strong { color: var(--green); }
+
+  .catalyst-pill { background: rgba(240,168,76,0.12); border: 1px solid rgba(240,168,76,0.3); color: var(--amber); font-size: 11px; padding: 3px 10px; border-radius: 10px; font-weight: 600; display: inline-block; margin-left: 6px; vertical-align: middle; }
+
+  /* Teaser */
+  .teaser-section { position: relative; margin-bottom: 0; user-select: none; pointer-events: none; }
+  .teaser-content { filter: blur(5px); opacity: 0.45; overflow: hidden; max-height: 320px; }
+
+  /* Paywall */
+  .paywall-wall { position: relative; z-index: 10; margin: -80px 0 0; background: linear-gradient(to bottom, transparent 0%, var(--bg) 30%); padding: 80px 60px 0; }
+  .paywall-block { background: linear-gradient(135deg, #0f1220, #12101e); border: 1px solid rgba(201,168,76,0.35); border-radius: 20px; padding: 56px 48px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 0 80px rgba(201,168,76,0.07), 0 24px 60px rgba(0,0,0,0.4); }
+  .paywall-block::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 500px; height: 400px; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 60%); pointer-events: none; }
+  .pw-lock-icon { font-size: 40px; margin-bottom: 16px; display: block; filter: drop-shadow(0 0 16px rgba(201,168,76,0.4)); }
+  .paywall-block h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+  .paywall-block .pw-sub { color: var(--text-muted); font-size: 15px; max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
+  .pw-locked-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 40px; }
+  .pw-item { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18); color: var(--text-muted); font-size: 12px; padding: 6px 14px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+  .pw-item::before { content: '🔒'; font-size: 10px; }
+
+  .pricing-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 760px; margin: 0 auto 36px; }
+  .tier { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px 20px; text-align: center; position: relative; transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+  .tier:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); }
+  .tier.featured { border-color: rgba(201,168,76,0.5); background: linear-gradient(160deg, #161428, #131828); box-shadow: 0 0 40px rgba(201,168,76,0.1); }
+  .tier-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #0d0f14; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 12px; border-radius: 20px; white-space: nowrap; }
+  .tier-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); font-weight: 600; margin-bottom: 10px; }
+  .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 4px; }
+  .tier-price sub { font-size: 16px; color: var(--gold); vertical-align: super; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+  .tier-period { font-size: 11px; color: var(--text-faint); margin-bottom: 18px; }
+  .tier-features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; }
+  .tier-features li { font-size: 12.5px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px; padding-left: 0; }
+  .tier-features li::before { content: none; }
+  .tier-features li .tf-check { color: var(--green); flex-shrink: 0; margin-top: 2px; font-size: 12px; }
+  .btn-tier { display: block; width: 100%; padding: 11px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; text-align: center; border: none; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .btn-tier-primary { background: var(--gold); color: #0d0f14; }
+  .btn-tier-primary:hover { background: var(--gold-light); }
+  .btn-tier-secondary { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
+  .btn-tier-secondary:hover { color: var(--text); border-color: var(--gold); }
+  .pw-note { font-size: 12px; color: var(--text-faint); margin-top: 20px; }
+  .pw-note a { color: var(--gold); text-decoration: none; }
+  .pf-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 12px; color: var(--text-faint); margin-top: 20px; }
+  .pf-methods { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+  .pf-method { background: var(--surface2); border: 1px solid var(--border); color: var(--text-faint); font-size: 11px; padding: 4px 10px; border-radius: 6px; }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.sidebar { display: none; }
+    .hero, .content { padding: 36px 24px; }
+    .paywall-wall { padding: 80px 24px 0; }
+    .paywall-block { padding: 40px 24px; }
+    .pricing-tiers { grid-template-columns: 1fr; }
+    .recovery-card { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    Antifragile Alpha Weekly
+    <span>South African Equities</span>
+  </div>
+  <div>
+    <div class="sidebar-label">Contents</div>
+    <ul class="sidebar-links">
+      <li><a href="#s1"><span class="num">01</span> Gold Recovery — What Changed</a></li>
+      <li><a href="#s2"><span class="num">02</span> Top 10 Undervalued Stocks</a></li>
+      <li><a href="#s3"><span class="num">03</span> Screening Methodology</a></li>
+      <li><a href="#paywall" class="locked"><span class="num">04</span> High-Conviction Bets <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">05</span> Moonshot: SPD <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">06</span> Execution &amp; Instruments <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">07</span> Broker Matrix <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">08</span> Portfolio Reweighting <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">09</span> CPI Results Playbook <span class="lock-icon">🔒</span></a></li>
+      <li><a href="#paywall" class="locked"><span class="num">10</span> Entry Guidelines + Stops <span class="lock-icon">🔒</span></a></li>
+    </ul>
+  </div>
+  <div style="margin-top:12px;">
+    <a href="#paywall" style="display:block;background:var(--gold);color:#0d0f14;text-align:center;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;font-size:13px;">🔓 Unlock Full Report</a>
+  </div>
+  <div class="macro-card">
+    <div class="mc-label">📊 Macro — Apr 18</div>
+    <div class="macro-stat"><span class="k">SARB Repo</span><span class="v v-gold">6.75% → 2 cuts '26</span></div>
+    <div class="macro-stat"><span class="k">ZAR / USD</span><span class="v v-ok">~R16.35 ↓</span></div>
+    <div class="macro-stat"><span class="k">Gold (USD/oz)</span><span class="v v-ok">~$4,867</span></div>
+    <div class="macro-stat"><span class="k">ZAR Gold (R/oz)</span><span class="v v-ok">~R79,500</span></div>
+    <div class="macro-stat"><span class="k">Brent Crude</span><span class="v v-ok">~$71 ↓</span></div>
+    <div class="macro-stat"><span class="k">ALSI (recovering)</span><span class="v v-ok">↑ from low</span></div>
+    <div class="macro-stat"><span class="k">US-China Tariffs</span><span class="v v-warn">145%</span></div>
+    <div class="macro-stat"><span class="k">CPI Results</span><span class="v v-gold">22 Apr — 4 days</span></div>
+    <div class="macro-stat"><span class="k">LS-Free Days</span><span class="v v-ok">320+</span></div>
+  </div>
+</nav>
+
+<!-- Main -->
+<main>
+  <div class="hero">
+    <div class="hero-tag">✦ Gold Recovery / Ceasefire Edition — Ed. 05</div>
+    <h1>Antifragile Alpha Weekly —<br/><em>SA Equities (Apr 18, 2026)</em></h1>
+    <div class="hero-meta">
+      <span>📅 April 18, 2026</span>
+      <span>📊 Data: Market close Apr 17, 2026</span>
+      <span>🏦 JSE · A2X · AltX · CTSE · 4AX</span>
+    </div>
+    <p class="hero-summary">
+      In one of the most dramatic market sequences in years, gold has recovered from a $3,100 margin-call low (April 9–10)
+      to <strong>$4,867/oz by April 17</strong> — a 57% rebound in 8 days. Simultaneously, the Israel-Lebanon ceasefire
+      announcement caused oil to fall >10%, easing inflation expectations and reopening the door to <strong>2 SARB rate
+      cuts in 2026</strong> (May + September). ZAR has strengthened from R19.2 to <strong>~R16.35/USD</strong>.
+      ZAR gold remains at <strong>R79,500/oz</strong> — extraordinary margins for SA miners.
+      Crucially, <strong>Capitec (CPI) reports full-year results on April 22</strong> — four days from now —
+      with 20–25% earnings growth guided. This edition scores the portfolio recovery, adds Harmony Gold (HAR)
+      as a high-conviction gold entry, and builds a Capitec pre-results playbook in the locked section.
+    </p>
+    <div class="hero-pills">
+      <span class="pill green">Gold Recovered: $3,100 → $4,867</span>
+      <span class="pill gold">ZAR Gold Still R79,500/oz</span>
+      <span class="pill amber">CPI Results: April 22 — 4 Days!</span>
+      <span class="pill green">SARB Back to 2 Cuts in 2026</span>
+      <span class="pill red">US-China 145% — No Relief Yet</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- SECTION 01 — FREE -->
+    <section id="s1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Gold Recovery &amp; Ceasefire — What Changed Since Apr 11 <span class="free-badge">✓ Free Preview</span></h2>
+      </div>
+
+      <div class="alert-box">
+        <strong>✦ Edition 05 — Recovery confirmed:</strong> The ZAR gold mispricing thesis published in Editions 04 and 05 has been comprehensively validated. Gold has recovered 57% from the April 9–10 margin-call low. PAN and DRD — our core gold positions — have re-rated substantially. Simultaneously, the Israel-Lebanon ceasefire has reset the inflation narrative. This edition focuses on what changed, what to do next, and the imminent Capitec results catalyst.
+      </div>
+
+      <div class="recovery-card">
+        <div class="rc-item">
+          <div class="rc-arrow">🥇</div>
+          <div class="rc-label">Gold (USD/oz)</div>
+          <div class="rc-val" style="color:var(--green);">$4,867</div>
+          <div class="rc-change" style="color:var(--green);">Apr 10 low: $3,100. +57% in 8 days</div>
+        </div>
+        <div class="rc-item">
+          <div class="rc-arrow">💱</div>
+          <div class="rc-label">ZAR / USD</div>
+          <div class="rc-val" style="color:var(--green);">~R16.35</div>
+          <div class="rc-change" style="color:var(--green);">Recovered from R19.2 shock</div>
+        </div>
+        <div class="rc-item">
+          <div class="rc-arrow">🛢</div>
+          <div class="rc-label">Brent Crude</div>
+          <div class="rc-val" style="color:var(--green);">~$71 ↓</div>
+          <div class="rc-change" style="color:var(--green);">Fell 10%+ on ceasefire news</div>
+        </div>
+        <div class="rc-item">
+          <div class="rc-arrow">🏦</div>
+          <div class="rc-label">SARB Cut Outlook</div>
+          <div class="rc-val" style="color:var(--amber);">2 cuts 2026</div>
+          <div class="rc-change" style="color:var(--amber);">May + Sep — per SBK guidance</div>
+        </div>
+      </div>
+
+      <p>The Israel-Lebanon <strong>10-day ceasefire</strong> was announced on April 17, with Iran's maritime authorities confirming the Strait of Hormuz remains open to commercial shipping (via a "coordinated route"). Oil fell more than 10% on the news, resetting what had been a significant oil-driven inflation shock. This single event has changed the macro calculus considerably:</p>
+
+      <ul>
+        <li><strong>SARB rate cut path restored:</strong> With oil falling and the primary inflationary shock easing, Standard Bank's guidance of 2 cuts in 2026 (May and September, 75bps total) looks increasingly credible again. This is a direct positive for banks, REITs, and consumer stocks.</li>
+        <li><strong>Gold recovery is NOT the same as the original peak:</strong> When gold was $4,700 on April 8, ZAR was R16.9 → ZAR gold was R79,430/oz. Today gold is $4,867, ZAR is R16.35 → ZAR gold is R79,575/oz. SA miners are receiving virtually <em>identical</em> ZAR gold prices despite all the volatility. The thesis has held throughout every regime shift.</li>
+        <li><strong>ZAR gold margin is unchanged:</strong> PAN's AISC ~R32,000/oz vs ZAR gold R79,500/oz = 148% operating margin. This is the highest in PAN's history and is not materially different from the pre-April 9 position.</li>
+        <li><strong>Gold all-time high context:</strong> Gold's record is ~$5,602/oz (January 28, 2026). At $4,867, gold remains 13% below that level — meaning there is still substantial upside room in the USD gold price before any reversal to mean.</li>
+      </ul>
+
+      <p>The ceasefire is described as fragile — the situation in the region remains complex, with Iran and the US agreeing to prolong nuclear negotiations. A re-escalation remains possible, which is why maintaining gold miners as a core portfolio allocation remains appropriate.</p>
+
+      <blockquote>"When the smoke clears, the antifragile portfolio is always better positioned than it was before. The April 9–10 forced liquidation was the market gifting us entry prices at PAN and DRD that we may not see again for years."</blockquote>
+
+      <h3>The Capitec Catalyst: April 22, 2026</h3>
+      <p>This is the single most immediate catalyst in the portfolio. Capitec (CPI) reports full-year results for the year ending February 28, 2026 on <strong>April 22 — four days from today.</strong> The company already guided in February 2026 that headline earnings per share (HEPS) would be between <strong>R14,294 and R14,890 per share</strong> — growth of 20–25% on the prior year's 11,912c.</p>
+      <p>The stock currently sits at ~R4,182, approximately 12% below its all-time high of R4,833. This pullback — caused by the indiscriminate trade war selloff — against a backdrop of record guided earnings creates a compelling pre-results entry window. ROE of 30%+ (highest in SA banking) combined with 25 million clients and the structural trend of mass-market banking consolidation make Capitec the most compelling quality-growth pick in the SA financial sector.</p>
+
+      <h3>Portfolio Scorecard: Editions 01–04</h3>
+      <p>The Auditor Agent has reviewed outcomes from our first four editions:</p>
+      <ul>
+        <li><strong>PAN (Pan African Resources) — Entry R36–40, Edition 01:</strong> ZAR gold at R79,500/oz confirms extraordinary margins. Target now raised to R105–115. Win status: ✅ CONFIRMED.</li>
+        <li><strong>DRD Gold — Entry R26–29, Editions 03–04:</strong> NYSE selling has normalised; JSE price has recovered strongly with gold. Target raised to R52–58. Win status: ✅ CONFIRMED.</li>
+        <li><strong>SOL (Sasol) — Exited at hard stop R148:</strong> Correct call. Oil at $71 (post-ceasefire) would imply further downside had we held. Stop-loss discipline validated.</li>
+        <li><strong>CPI (Capitec) — Entry R2,750–2,900:</strong> Still below ATH. Catalyst arrives April 22. Status: ⏳ MONITORING — DO NOT EXIT AHEAD OF RESULTS.</li>
+        <li><strong>KIO (Kumba Iron Ore):</strong> China stimulus not yet announced. 4-month window started April 10. Still ~2.5 months remaining. Status: ⏳ HOLDING, watch for announcement.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 02 — FREE -->
+    <section id="s2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2>Top 10 Undervalued Stocks (Apr 18 Rescreen) <span class="free-badge">✓ Free Preview</span></h2>
+      </div>
+
+      <p>Full re-screen under ceasefire/recovery assumptions: Gold $4,867/oz (ZAR R79,500/oz); Brent ~$71; ZAR/USD R16.35; SARB 6.75% (2 cuts expected by year-end). <strong>One new entry: Harmony Gold (HAR)</strong> replaces AMS (Anglo American Platinum) in this edition — HAR offers the highest operating leverage to gold of any major JSE miner, and at current gold prices is generating free cash flow at a pace the market has not yet priced. AMS returns to watchlist.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th><th>Ticker</th><th>Exch</th><th>Sector</th>
+              <th>Price (ZAR)</th><th>Fair Value</th><th>Upside</th>
+              <th>Horizon</th><th>Risk</th><th>Recovery-Adjusted Thesis &amp; Catalyst</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pan African Res.</strong></td><td><span class="ticker">PAN</span></td><td>JSE/A2X</td><td>Gold Mining</td>
+              <td><span class="price">~R85</span></td><td><span class="fv">~R105–115</span></td><td><span class="upside-green">+24–35%</span></td>
+              <td>3–6m</td><td><span class="risk-med">Medium</span></td>
+              <td>ZAR gold at R79,500/oz vs AISC ~R32,000 = 148% operating margin. Net-debt-free; H1 FY26 output +51% confirmed. Target raised from R90 to R105–115 on gold recovery. H2 FY27 results and Mintails ramp-up are next catalysts. Best-performing pick across all editions. <strong>Raise stop from R50 to R68.</strong></td>
+            </tr>
+            <tr>
+              <td><strong>DRDGold</strong></td><td><span class="ticker">DRD</span></td><td>JSE/A2X</td><td>Gold Mining</td>
+              <td><span class="price">~R40</span></td><td><span class="fv">~R52–58</span></td><td><span class="upside-green">+30–45%</span></td>
+              <td>3–6m</td><td><span class="risk-med">Medium</span></td>
+              <td>Surface retreatment margins extraordinary. NYSE price now normalised after margin-call overshoot. Upcoming interim dividend expected to spike materially — ZAR gold realisation at R79,500/oz means DRD's dividend yield could be sector-leading. Target raised from R46 to R52–58. <strong>Raise stop to R32.</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Capitec Bank</strong></td><td><span class="ticker">CPI</span></td><td>JSE/A2X</td><td>Banking</td>
+              <td><span class="price">~R4,182</span></td><td><span class="fv">~R4,900–5,200</span></td><td><span class="upside-green">+17–24%</span></td>
+              <td>3–6m</td><td><span class="risk-med">Medium</span></td>
+              <td><strong>CATALYST IN 4 DAYS (April 22).</strong> HEPS guided R14,294–14,890 (20–25% growth). ROE 30%+ (highest in SA banking). Stock is 12% below ATH of R4,833. 25 million clients — the mass-market banking consolidation trend is unstoppable. Hold ahead of results. Target R4,900–5,200. This is the closest-term catalyst in the entire portfolio.</td>
+            </tr>
+            <tr>
+              <td><strong>Harmony Gold</strong></td><td><span class="ticker">HAR</span></td><td>JSE/A2X</td><td>Gold Mining</td>
+              <td><span class="price">~R165</span></td><td><span class="fv">~R220–240</span></td><td><span class="upside-green">+33–45%</span></td>
+              <td>3–6m</td><td><span class="risk-high">High</span></td>
+              <td><strong>NEW ENTRY.</strong> Harmony has the highest gold price operating leverage of any major JSE miner — AISC around R45,000–50,000/oz but revenue at R79,500/oz = extraordinary FCF at scale. South African, Papua New Guinean, and Australian assets provide diversification. At current gold, Harmony is generating free cash flow it has never seen before. Market has not fully re-rated. Hidden truth: Harmony's Papua New Guinea Wafi-Golpu copper-gold project is a call option on copper (critical for EV supply chains). Stop R130.</td>
+            </tr>
+            <tr>
+              <td><strong>Standard Bank</strong></td><td><span class="ticker">SBK</span></td><td>JSE/A2X</td><td>Banking</td>
+              <td><span class="price">~R320</span></td><td><span class="fv">~R375–395</span></td><td><span class="upside-green">+17–23%</span></td>
+              <td>12m</td><td><span class="risk-low">Low</span></td>
+              <td>SARB back to 2 cuts in 2026 (May + Sep) per SBK's own guidance. 2025 results confirmed ROE 19.3%, R49.2bn headline earnings. Africa franchise (40% of earnings from 20 African countries) structurally undervalued. Q1 2026 results approaching — expect continued momentum. Analyst PT ~R380–390. Raise target modestly on cut restoration.</td>
+            </tr>
+            <tr>
+              <td><strong>FirstRand</strong></td><td><span class="ticker">FSR</span></td><td>JSE/A2X</td><td>Banking/FinServ</td>
+              <td><span class="price">~R90</span></td><td><span class="fv">~R108–118</span></td><td><span class="upside-green">+20–31%</span></td>
+              <td>12m</td><td><span class="risk-low">Low</span></td>
+              <td>SARB cut restoration supports NIM trajectory. RMB investment banking earns on volatility — this has been an extraordinary period. FNB UK exit crystallisation remains a wild-card value event. Africa expansion growing. Dividend yield provides downside floor. Q1 FY2027 (year to June) interim results in February but trading updates more frequent. Core anchor.</td>
+            </tr>
+            <tr>
+              <td><strong>Naspers (Prosus)</strong></td><td><span class="ticker">NPN</span></td><td>JSE/A2X</td><td>Tech/Media</td>
+              <td><span class="price">~R1,090</span></td><td><span class="fv">~R1,350–1,450</span></td><td><span class="upside-green">+24–33%</span></td>
+              <td>6–12m</td><td><span class="risk-med">Medium</span></td>
+              <td>With ZAR now at R16.35 (vs shock peak of R19.2), the automatic NAV expansion is partially reversed — but ZAR gold benefits offset this. More importantly, Tencent's earnings recovery is gaining momentum, and the structural NAV discount remains large. Buyback program ongoing. NPN is still the cleanest diversification play in the SA equity universe.</td>
+            </tr>
+            <tr>
+              <td><strong>MTN Group</strong></td><td><span class="ticker">MTN</span></td><td>JSE/A2X</td><td>Telecom</td>
+              <td><span class="price">~R175</span></td><td><span class="fv">~R210–225</span></td><td><span class="upside-green">+20–29%</span></td>
+              <td>6–12m</td><td><span class="risk-med">Medium</span></td>
+              <td>Oil falling = consumer spending improving = telecom demand supported further. MoMo (mobile money) scaling to 100m+ users across Africa. Telecom is the last subscription cancelled. Strong dividend yield at current prices. Africa USD revenues provide partial rand hedge even at R16.35. No direct trade war exposure.</td>
+            </tr>
+            <tr>
+              <td><strong>Kumba Iron Ore</strong></td><td><span class="ticker">KIO</span></td><td>JSE/A2X</td><td>Iron Ore/Mining</td>
+              <td><span class="price">~R435</span></td><td><span class="fv">~R530–570</span></td><td><span class="upside-green">+22–31%</span></td>
+              <td>3–5m</td><td><span class="risk-high">High</span></td>
+              <td>China stimulus window still active (started April 10, 4-month maximum). US tariff escalation against China historically triggers domestic infrastructure within 60–120 days. We are ~5 weeks into that window. Iron ore and steel are infrastructure-intensive. USD earner with ZAR cost base now stronger = slightly compressed margins but still compelling at P/E ~6×. Hard stop R330 — mandatory.</td>
+            </tr>
+            <tr>
+              <td><strong>iOCO Ltd</strong></td><td><span class="ticker">IOC</span></td><td>JSE (AltX)</td><td>IT Services</td>
+              <td><span class="price">~R4.30</span></td><td><span class="fv">~R6.00–7.50</span></td><td><span class="upside-green">+40–74%</span></td>
+              <td>6–12m</td><td><span class="risk-high">High</span></td>
+              <td>Regime-agnostic domestic SA IT services. No tariff exposure, no gold exposure, no oil exposure. +46% EPS growth (49c → 72c) is a pure fundamental story. 50%+ recurring cloud/SaaS revenues. Sticky enterprise contracts. Sold off with everything during the trade war shock — a buying opportunity, not a thesis failure. Scale in patiently. Stop R3.20.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Table 1: Top 10 rescreened SA stocks — prices as of Apr 17, 2026 close (estimated). Gold $4,867/oz; ZAR/USD R16.35; ZAR gold ~R79,500/oz; Brent ~$71 post-ceasefire. One new entry: HAR (Harmony Gold). AMS moves to watchlist pending PGM price recovery confirmation. PAN and DRD targets raised materially.</p>
+    </section>
+
+    <!-- SECTION 03 — FREE -->
+    <section id="s3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>Recovery-Aware Screening Methodology <span class="free-badge">✓ Free Preview</span></h2>
+      </div>
+
+      <p>Our multi-factor framework is unchanged. Three specific updates have been applied to the screening engine based on lessons from Editions 03–04:</p>
+
+      <ul>
+        <li><strong>GOLD_RECOVERY_VELOCITY rule (new, permanent):</strong> When gold drops &gt;15% in &lt;5 days due to forced liquidation (margin call signatures: rapid fall, correlated with equities, reversal within 1–2 weeks), treat it as a buying event for net-debt-free SA gold miners. Do NOT exit ZAR-denominated gold miners based on USD gold alone. The ZAR gold price is the operative variable for SA miners. This rule has now been added permanently to the rules engine after its comprehensive validation in this episode.</li>
+        <li><strong>CEASEFIRE_OIL_SARB cascade (new):</strong> Middle East ceasefire → oil falls 10%+ → SARB inflation forecast improves → rate cut probability increases → overweight banks and REITs. This cascade operates in the reverse direction of the April 9 oil shock. We now flag it as a regime trigger in its own right, affecting our bank thesis positively.</li>
+        <li><strong>PRE_RESULTS_WINDOW rule (codified):</strong> When a stock in our portfolio has upcoming results within 10 days and the guided earnings growth is &gt;15%, we classify this as a TIER-1 CATALYST. The pre-results window is when smart money accumulates. Do not reduce position ahead of results unless stop-loss is threatened. This applies to CPI on April 22.</li>
+        <li><strong>ZAR gold calculation — mandatory field:</strong> Every gold miner in the screen now includes: (a) USD gold price, (b) ZAR/USD rate, (c) ZAR gold = (a)×(b), (d) ZAR AISC, (e) ZAR operating margin = (c−d)/c. This is now a permanent methodology upgrade.</li>
+        <li><strong>Harmony Gold HAR — entry criteria met:</strong> HAR has the highest operating leverage to gold of any major JSE miner. At $4,867 gold and R16.35/USD, HAR receives ~R79,500/oz. Their AISC is approximately R45,000–50,000/oz, leaving ~60% operating margins at scale. HAR enters the screen as the gold price recovery edition's highest-leverage new pick.</li>
+        <li><strong>KIO China window tracker:</strong> The China domestic stimulus thesis has a 4-month window from April 10. We are now at week 5. Historical precedent suggests 60–120 days from tariff escalation to stimulus announcement. We are at ~40 days. The window remains open. Monitor weekly for PBOC or NDRC infrastructure announcements.</li>
+      </ul>
+
+      <p><strong>Apr 18 composite factor scores:</strong> PAN (95 — highest ever, ZAR gold thesis fully confirmed), DRD (91), CPI (93 — catalyst-boosted; April 22 results make this the highest near-term catalyst score), HAR (78 — new entry, high gold leverage), SBK (84 — SARB improving again), FSR (82), NPN (78), MTN (76), KIO (72 — waiting on stimulus), IOC (71 — regime-agnostic value).</p>
+    </section>
+
+    <!-- TEASER Section 04 -->
+    <div class="teaser-section" aria-hidden="true">
+      <div class="teaser-content">
+        <div style="margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:baseline;">
+          <span style="font-family:DM Mono,monospace;font-size:12px;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(201,168,76,0.25);padding:3px 8px;border-radius:4px;">04</span>
+          <span style="font-family:Cormorant Garamond,serif;font-size:26px;font-weight:700;color:#fff;">High-Conviction Bets — The Recovery Triple</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;">
+            <div style="font-family:DM Mono,monospace;font-size:18px;color:var(--gold);">PAN.JO</div>
+            <div style="font-size:13px;color:var(--text-muted);margin:4px 0 16px;">"148% ZAR Margin — Thesis Confirmed"</div>
+            <div style="display:flex;gap:16px;margin-bottom:12px;">
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Add Zone</div><div style="font-family:DM Mono,monospace;font-size:14px;">R82–88</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Target</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">~R112</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Return</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">+31%</div></div>
+            </div>
+            <div style="font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:12px;">Hidden Truth: ZAR gold at R79,500 means PAN's free cash flow margin is 148% above AISC. The market has re-rated but not finished...</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;">
+            <div style="font-family:DM Mono,monospace;font-size:18px;color:var(--gold);">CPI.JO</div>
+            <div style="font-size:13px;color:var(--text-muted);margin:4px 0 16px;">"Results in 4 Days — 25% HEPS Growth"</div>
+            <div style="display:flex;gap:16px;margin-bottom:12px;">
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Pre-Results Buy</div><div style="font-family:DM Mono,monospace;font-size:14px;">R4,050–4,200</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Target</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">~R5,100</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Return</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">+21–26%</div></div>
+            </div>
+            <div style="font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:12px;">Hidden Truth: 20-25% HEPS growth with ROE 30%+ is mispriced at 12% below ATH. The market sold CPI indiscriminately during trade war...</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;">
+            <div style="font-family:DM Mono,monospace;font-size:18px;color:var(--gold);">HAR.JO</div>
+            <div style="font-size:13px;color:var(--text-muted);margin:4px 0 16px;">"Maximum Gold Operating Leverage on JSE"</div>
+            <div style="display:flex;gap:16px;margin-bottom:12px;">
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Entry</div><div style="font-family:DM Mono,monospace;font-size:14px;">R155–172</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Target</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">~R235</div></div>
+              <div><div style="font-size:10px;color:var(--text-faint);text-transform:uppercase;">Return</div><div style="font-family:DM Mono,monospace;font-size:14px;color:var(--green);">+37%</div></div>
+            </div>
+            <div style="font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:12px;">Hidden Truth: Harmony's Papua New Guinea Wafi-Golpu project is a copper-gold call option the market values at near-zero. Critical minerals...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYWALL -->
+    <div class="paywall-wall" id="paywall">
+      <div class="paywall-block">
+        <span class="pw-lock-icon">🔒</span>
+        <h2>Premium Intelligence Locked</h2>
+        <p class="pw-sub">You've seen the recovery analysis, the rescreened top 10, and the partial conviction bet teasers. The full edge — <em>exact entry prices, hard stops, the Capitec pre-results playbook, Harmony Gold full thesis, updated portfolio weights, and trade scenarios</em> — is behind the paywall.</p>
+
+        <div class="pw-locked-items">
+          <span class="pw-item">04 · High-Conviction Bets: PAN, CPI, HAR</span>
+          <span class="pw-item">05 · Moonshot: SPD Update</span>
+          <span class="pw-item">06 · Execution &amp; Instruments</span>
+          <span class="pw-item">07 · Broker Matrix</span>
+          <span class="pw-item">08 · Barbell Reweighting Apr 11 → Apr 18</span>
+          <span class="pw-item">09 · Capitec Results Playbook (Apr 22)</span>
+          <span class="pw-item">10 · Entry Prices, Stops &amp; Sizing Table</span>
+        </div>
+
+        <div class="pricing-tiers">
+          <div class="tier">
+            <div class="tier-label">Single Report</div>
+            <div class="tier-price"><sub>R</sub>99</div>
+            <div class="tier-period">one-time · this issue only</div>
+            <ul class="tier-features">
+              <li><span class="tf-check">✓</span> Full Apr 18 report</li>
+              <li><span class="tf-check">✓</span> All 10 stock theses</li>
+              <li><span class="tf-check">✓</span> Entry &amp; stop levels</li>
+              <li><span class="tf-check">✓</span> CPI results playbook</li>
+              <li style="color:var(--text-faint);">✗ Future issues</li>
+              <li style="color:var(--text-faint);">✗ Archive access</li>
+            </ul>
+            <a href="https://payfast.io" target="_blank" class="btn-tier btn-tier-secondary">Unlock This Issue →</a>
+          </div>
+          <div class="tier featured">
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-label">Monthly</div>
+            <div class="tier-price"><sub>R</sub>199</div>
+            <div class="tier-period">per month · cancel anytime</div>
+            <ul class="tier-features">
+              <li><span class="tf-check">✓</span> Every weekly report</li>
+              <li><span class="tf-check">✓</span> Full conviction theses</li>
+              <li><span class="tf-check">✓</span> Entry, target &amp; stops</li>
+              <li><span class="tf-check">✓</span> Broker &amp; instrument guide</li>
+              <li><span class="tf-check">✓</span> Portfolio construction</li>
+              <li><span class="tf-check">✓</span> Bull/base/bear scenarios</li>
+            </ul>
+            <a href="https://payfast.io" target="_blank" class="btn-tier btn-tier-primary">Unlock Full Report (R199) →</a>
+          </div>
+          <div class="tier">
+            <div class="tier-label">Annual</div>
+            <div class="tier-price"><sub>R</sub>999</div>
+            <div class="tier-period">per year · 2 months free</div>
+            <ul class="tier-features">
+              <li><span class="tf-check">✓</span> Everything in Monthly</li>
+              <li><span class="tf-check">✓</span> 52 weekly reports/year</li>
+              <li><span class="tf-check">✓</span> Full archive access</li>
+              <li><span class="tf-check">✓</span> Priority email support</li>
+              <li><span class="tf-check">✓</span> Custom watchlist alerts</li>
+              <li><span class="tf-check">✓</span> 2 months free vs monthly</li>
+            </ul>
+            <a href="https://payfast.io" target="_blank" class="btn-tier btn-tier-secondary">Save with Annual →</a>
+          </div>
+        </div>
+
+        <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:20px 28px;max-width:500px;margin:0 auto 28px;display:flex;align-items:center;gap:20px;text-align:left;">
+          <div style="font-size:28px;">🏛️</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">Institutional — from R5,000/month</div>
+            <div style="font-size:12px;color:var(--text-muted);">Multi-seat, custom sector reports, direct analyst Q&A. For asset managers and family offices.</div>
+          </div>
+          <a href="mailto:research@antifragile-alpha.co.za" style="background:var(--surface2);border:1px solid var(--border);color:var(--gold);font-size:12px;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
+        </div>
+
+        <div>
+          <div class="pf-badge">🔐 Secured by PayFast · All major SA payment methods</div>
+          <div class="pf-methods">
+            <span class="pf-method">💳 Visa / Mastercard</span>
+            <span class="pf-method">⚡ Instant EFT</span>
+            <span class="pf-method">📱 SnapScan QR</span>
+            <span class="pf-method">🏦 Capitec Pay</span>
+            <span class="pf-method">📲 Masterpass</span>
+          </div>
+        </div>
+        <p class="pw-note">Already a subscriber? <a href="mailto:research@antifragile-alpha.co.za">Email us</a> for access. · <a href="index.html">← Back to portal</a> · Not financial advice.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</body>
+</html>
