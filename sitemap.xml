@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ============================================================
+       EKURHULENI UNDERGROUND — SITEMAP
+       Publication: 1906 Reblabs
+       Site: https://1906reblabs.github.io/ekurhuleni-underground/
+       Last updated: 2026-04-18
+       ============================================================ -->
+
+  <!-- HOME — highest priority, updated with every new issue -->
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- STATIC PAGES -->
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/about.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/partners.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/privacy.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/terms.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ISSUES — newest first, all high priority as evergreen content -->
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue13.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue12.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue11.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue10.html</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue9.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue8.html</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue7.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue6.html</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue5.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue4.html</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue3.html</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue2.html</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://1906reblabs.github.io/ekurhuleni-underground/issue1.html</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
